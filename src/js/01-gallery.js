@@ -40,10 +40,8 @@ function onListElClick(event) {
   console.log(dataSource)
   const instance = basicLightbox.create(`
      <img src="${dataSource}" width="1280" height="auto">
-`)
+`);
 
 instance.show()
-    
-   
-    
+     
 }
