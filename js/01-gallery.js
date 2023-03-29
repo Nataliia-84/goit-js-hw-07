@@ -31,19 +31,21 @@ listEl.insertAdjacentHTML('beforeend', itemEl)
 listEl.addEventListener('click',onListElClick)
 
 function onListElClick(event) {
-    event.target.preventDefault()
-    if (!event.target.nodeName === 'A') {
+
+    // event.target.preventDefault()
+    if (!event.target.classList.contains('gallery__image')) {
         return
     }
-    console.log(event.target)
-console.log(event.target.dataset.source)
-   
-    
-   
-    
+  const dataSource = event.target.dataset.source
+  console.log(dataSource)
+  const instance = basicLightbox.create(`
+     <img src="${dataSource}" width="1280" height="auto">
+`);
+
+instance.show()
+     
 }
-// const instance = basicLightbox.create(`
-//     <h1>Dynamic Content</h1>
-//     <p>You can set the content of the lightbox with JS.</p>
-// `)
-//     instance.show()
+
+    
+   
+    
