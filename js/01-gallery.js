@@ -32,7 +32,7 @@ listEl.addEventListener('click',onListElClick)
 
 function onListElClick(event) {
 
-    // event.target.preventDefault()
+    event.preventDefault()
     if (!event.target.classList.contains('gallery__image')) {
         return
     }
