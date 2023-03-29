@@ -32,6 +32,9 @@ listEl.addEventListener('click',onListElClick)
 
 function onListElClick(event) {
     event.target.preventDefault()
+    if (!event.target.nodeName === 'A') {
+        return
+    }
     console.log(event.target)
 console.log(event.target.dataset.source)
    
