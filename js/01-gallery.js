@@ -3,8 +3,6 @@ import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
 
-
-
 const listEl = document.querySelector('.gallery');
 console.log(listEl)
 
@@ -32,20 +30,31 @@ listEl.addEventListener('click',onListElClick)
 
 function onListElClick(event) {
 
-    event.preventDefault()
-    if (!event.target.classList.contains('gallery__image')) {
-        return
-    }
+  event.preventDefault()
+  if (!event.target.classList.contains('gallery__image')) {
+    return
+  }
   const dataSource = event.target.dataset.source
   console.log(dataSource)
   const instance = basicLightbox.create(`
      <img src="${dataSource}" width="1280" height="auto">
-`);
-
+`,
+    {
+    onShow: (instance) => { window.addEventListener('keydown', onClickEscape); }
+    ,
+    onClose: (instance) => { window.removeEventListener('keydown', onClickEscape); }
+  }
+  )
+;
 instance.show()
-     
+  function onClickEscape(event) {
+  console.log(event.code)
+  if (event.code !== 'Escape') {
+    return;
+  }
+instance.close()
+
+} 
 }
 
-    
-   
-    
+
