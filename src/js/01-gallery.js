@@ -39,7 +39,7 @@ function onListElClick(event) {
   const dataSource = event.target.dataset.source
   console.log(dataSource)
   const instance = basicLightbox.create(`
-     <img src="${dataSource}" width="800" height="600">
+     <img src="${dataSource}" width="1280" height="auto">
 `)
 
 instance.show()
