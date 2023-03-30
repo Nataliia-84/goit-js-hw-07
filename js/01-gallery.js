@@ -44,8 +44,7 @@ function onListElClick(event) {
     ,
     onClose: (instance) => { window.removeEventListener('keydown', onClickEscape); }
   }
-  )
-;
+  );
 instance.show()
   function onClickEscape(event) {
   console.log(event.code)
@@ -53,7 +52,6 @@ instance.show()
     return;
   }
 instance.close()
-
 } 
 }
 
